@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root {
+  /* Midnight Theme Base */
+  --background: 224 71% 4%; /* #020617 */
+  --foreground: 213 31% 91%; /* #f1f5f9 */
+  --card: 222 47% 11%; /* #0f172a */
+  --card-foreground: 213 31% 91%;
+  --popover: 222 47% 11%;
+  --popover-foreground: 213 31% 91%;
+  --primary: 217 91% 60%; /* #3b82f6 */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 217 33% 17%; /* #1e293b */
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 217 33% 17%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217 33% 17%;
+  --input: 217 33% 17%;
+  --ring: 224 71% 4%;
+  --chart-1: 217 91% 60%;
+  --chart-2: 160 84% 39%;
+  --chart-3: 38 92% 50%;
+  --chart-4: 348 83% 47%;
+  --chart-5: 262 83% 58%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 antialiased transition-colors duration-300;
+}
+
+/* Glassmorphism utility */
+.glass {
+  @apply bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/50 dark:border-white/5 shadow-xl dark:shadow-2xl transition-all duration-300;
+}
+
+.glass-panel {
+  @apply bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-200/50 dark:border-white/5 transition-all duration-300;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.8; box-shadow: 0 0 15px rgba(59, 130, 246, 0.2); }
+  50% { opacity: 1; box-shadow: 0 0 25px rgba(59, 130, 246, 0.4); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: #f1f5f9;
+  transition: background-color 0.3s;
+}
+.dark ::-webkit-scrollbar-track {
+  background-color: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 9999px;
+  transition: background-color 0.3s;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #1e293b;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #334155;
+}
+
+html {
+  scroll-behavior: smooth;
+}
