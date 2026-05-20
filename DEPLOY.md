@@ -28,3 +28,24 @@ Set `DATABASE_URL` before running the server:
 $env:DATABASE_URL="postgresql://USER:PASSWORD@HOST/DATABASE?sslmode=require"
 npm run server
 ```
+
+## Backend API Hosting
+
+GitHub Pages can host only the frontend. The API server must be deployed separately.
+
+For Render:
+
+1. Create a new Web Service from this GitHub repo.
+2. Use `render.yaml` or set:
+   - Build Command: `npm ci`
+   - Start Command: `npm run server`
+3. Add environment variable:
+   - `DATABASE_URL`
+4. After Render gives you a URL, rebuild the frontend with:
+
+```powershell
+$env:VITE_API_BASE="https://your-render-service.onrender.com"
+npm run build
+```
+
+Then publish the `dist` folder to the `gh-pages` branch.

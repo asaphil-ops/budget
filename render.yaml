@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: budget-expenses-api
+    env: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm run server
+    envVars:
+      - key: DATABASE_URL
+        sync: false
